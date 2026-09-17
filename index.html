@@ -88,6 +88,8 @@
   .voice-item{background:rgba(255,255,255,.07);border-radius:4px;padding:16px 18px}
   .voice-item .t{font:900 15px/1 'Barlow Condensed',sans-serif;color:var(--teal);text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}
   .voice-item .d{font:400 10.5px/1.6 system-ui,sans-serif;color:rgba(255,255,255,.5)}
+  .pull-quote{border-left:3px solid var(--teal);padding-left:18px;margin:22px 0 0;font:400 12px/1.8 system-ui,sans-serif;color:rgba(255,255,255,.72);font-style:normal}
+  .pull-quote .cite{display:block;margin-top:10px;font:700 10px/1 'Space Mono',monospace;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;font-style:normal}
 
   footer{background:var(--navy-ink);padding:44px 0;text-align:center}
   footer .fmark{opacity:.4;margin-bottom:12px}
@@ -128,7 +130,7 @@
     </div>
     <h1>Memo: Random</h1>
     <div class="eyebrow tag">An Interactive Geopolitical Talk Show.</div>
-    <p class="sub">Four segments, one thread. A conversation built the way an actual policy memo gets written — wide-ranging on purpose, never wandering by accident.</p>
+    <p class="sub">Three parts, one thread — a monologue, an interactive interview, and a closing take, built the way an actual policy memo gets written.</p>
     <div class="hero-ctas">
       <a href="#format" class="btn btn-primary">See the Format</a>
       <a href="#episodes" class="btn btn-ghost">Upcoming Episodes</a>
@@ -139,31 +141,27 @@
 <section id="format">
   <div class="wrap">
     <div class="section-head"><span class="num">01</span><h2>The Format</h2></div>
-    <p class="lede">Every episode runs four segments. Click through the structure below — it's the same shape every week, filled with whatever the week actually gave us.</p>
+    <p class="lede">Every episode runs three parts. Click through the structure below — it's the same shape every week, filled with whatever the week actually gave us.</p>
 
     <div class="segments">
       <div class="seg-tabs" id="segTabs">
         <button class="seg-tab active" data-i="0">
           <div class="n">Segment 01</div>
-          <div class="t">The Setup</div>
+          <div class="t">The Monologue</div>
         </button>
         <button class="seg-tab" data-i="1">
           <div class="n">Segment 02</div>
-          <div class="t">The Deep Dive</div>
+          <div class="t">The Interview</div>
         </button>
         <button class="seg-tab" data-i="2">
           <div class="n">Segment 03</div>
-          <div class="t">The Guest Cross</div>
-        </button>
-        <button class="seg-tab" data-i="3">
-          <div class="n">Segment 04</div>
-          <div class="t">Three to Watch</div>
+          <div class="t">The Close</div>
         </button>
       </div>
       <div class="seg-panel">
-        <div class="k" id="segK">00:00 – 06:00</div>
-        <h3 id="segT">What actually changed this week?</h3>
-        <p id="segD">No cold open, no news roundup — one story, stated plainly, that the rest of the episode is going to complicate. This is where "wide-ranging" gets its anchor.</p>
+        <div class="k" id="segK">00:00 – 10:00</div>
+        <h3 id="segT">Setting the scene</h3>
+        <p id="segD">Trevor's signature monologue — a straight, no-jargon read on the week's topic: what's happening, why it matters, and why it's worth your time. Serious about the subject, not about himself.</p>
       </div>
     </div>
   </div>
@@ -199,7 +197,7 @@
         <div class="ep-body">
           <div class="ep-num">Episode 03</div>
           <h3>Topic in development</h3>
-          <p>Same rule: four segments, one thread, whatever the week gave us.</p>
+          <p>Same rule: three parts, one thread, whatever the week gave us.</p>
         </div>
       </div>
     </div>
@@ -213,11 +211,13 @@
       <div>
         <p>Memo: Random is hosted by Trevor H. Rudolph, a Brussels-based technology and cybersecurity policy executive whose background runs from the White House Office of Management and Budget to Fortune 500 government affairs leadership. The show is the conversational half of Rudolph Ventures' two-show slate — the argument you'd actually have with a well-read friend about the week's news, minus the podcast throat-clearing.</p>
         <p>Its sibling show, <a href="#">Global Coup</a>, runs the same subject matter through a competitive format instead.</p>
+        <blockquote class="pull-quote">Today's geopolitics shows can be a bit self-important and stuffy — and the subject matter is genuinely complex, sometimes even scary, while the average person barely gets a voice in it. Memo: Random is my attempt at a fresh approach: earnestly analyze the key issues of our time, without taking myself or the conversation too seriously.<span class="cite">— Trevor H. Rudolph, Host</span></blockquote>
       </div>
       <div class="voice-list">
         <div class="voice-item"><div class="t">Conversational. Not casual.</div><div class="d">Two well-read people talking — not a lecture, not a podcast in-joke.</div></div>
         <div class="voice-item"><div class="t">Curious. Not credulous.</div><div class="d">Ask the real question and wait for the real answer. Interest isn't the same as agreement.</div></div>
         <div class="voice-item"><div class="t">Plain. Not simplified.</div><div class="d">Say complicated things in ordinary words. Drop the jargon, keep the substance.</div></div>
+        <div class="voice-item"><div class="t">Earnest. Not self-serious.</div><div class="d">Real analysis of real issues — without the host mistaking himself for the main character.</div></div>
       </div>
     </div>
   </div>
@@ -244,10 +244,9 @@
   }));
 
   const segments = [
-    { k: '00:00 – 06:00', t: 'What actually changed this week?', d: 'No cold open, no news roundup — one story, stated plainly, that the rest of the episode is going to complicate. This is where "wide-ranging" gets its anchor.' },
-    { k: '06:00 – 18:00', t: 'The thing everyone got wrong', d: 'The host takes the story apart in public — where the initial coverage held up, where it didn\'t, and why. No lecture, no jargon, just the actual mechanics.' },
-    { k: '18:00 – 34:00', t: 'A guest who was actually there', d: 'A former official, correspondent, or practitioner who touched the story directly. The host asks the question that would change their own mind, and waits for the real answer.' },
-    { k: '34:00 – 42:00', t: 'What to watch next', d: 'Three specific, dated things worth tracking before the next episode — a vote, a deadline, a treaty clause. The memo closes the way a memo should: with next steps.' },
+    { k: '00:00 – 10:00', t: 'Setting the scene', d: "Trevor's signature monologue — a straight, no-jargon read on the week's topic: what's happening, why it matters, and why it's worth your time. Serious about the subject, not about himself." },
+    { k: '10:00 – 34:00', t: 'The interactive interview', d: 'A guest conversation the audience is actually part of — live polls put your read on the record, and real-time questions from the room help shape where it goes next.' },
+    { k: '34:00 – 42:00', t: 'Closing remarks', d: "Trevor closes with his own take and a summary of the way forward — the memo closes the way a memo should, with next steps you can actually act on." },
   ];
   const tabs = document.querySelectorAll('.seg-tab');
   const segK = document.getElementById('segK');
@@ -266,4 +265,3 @@
 </script>
 </body>
 </html>
-
