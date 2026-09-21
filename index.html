@@ -119,6 +119,24 @@
     .ep-grid{grid-template-columns:1fr}
     .host-grid{grid-template-columns:1fr}
   }
+
+  .signup{background:var(--paper);border-top:1px solid var(--line)}
+  .signup-form{max-width:560px;display:grid;gap:16px;margin-top:8px}
+  .signup-field label{display:block;font:400 10px/1 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .signup-field input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--navy);font:400 13px/1.4 system-ui,sans-serif}
+  .signup-field input:focus{outline:none;border-color:var(--teal)}
+  .signup-consent{display:flex;align-items:flex-start;gap:10px;font:400 11.5px/1.6 system-ui,sans-serif;color:var(--muted);cursor:pointer}
+  .signup-consent input{margin-top:3px;flex-shrink:0;width:15px;height:15px;accent-color:var(--teal-ink)}
+  .signup-submit{justify-self:start;background:var(--navy);color:#fff;border:none;padding:12px 30px;border-radius:2px;font:400 11px/1 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+  .signup-submit:hover{background:var(--navy-ink)}
+  .signup-success{display:none;font:400 12px/1.6 system-ui,sans-serif;color:var(--teal-ink);margin:0}
+  .signup-error{display:none;font:400 12px/1.6 system-ui,sans-serif;color:#b3261e;margin:0}
+  .signup-privacy{margin-top:32px;max-width:680px}
+  .signup-privacy summary{cursor:pointer;font:400 11px/1 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-ink)}
+  .signup-privacy[open] summary{margin-bottom:14px}
+  .signup-privacy .notice-body{font:400 12.5px/1.7 system-ui,sans-serif;color:var(--muted)}
+  .signup-privacy .notice-body p{margin:0 0 12px}
+  .signup-privacy .notice-body strong{color:var(--navy)}
 </style>
 </head>
 <body>
@@ -133,6 +151,7 @@
       <a href="#episodes">Episodes</a>
       <a href="#about">About</a>
       <a href="#host">Host</a>
+      <a href="#signup">Updates</a>
       <a href="#episodes" class="cta">Listen →</a>
     </div>
   </nav>
@@ -199,6 +218,49 @@
   </div>
 </section>
 
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="section-head"><h2>Get Updates</h2></div>
+    <p class="lede">Sign up for air-date reminders, guest announcements, and the post-show debrief memo for each episode of Memo: Random.</p>
+
+    <form class="signup-form" id="signupForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="signup-field">
+        <label for="su-email">Email address</label>
+        <input type="email" id="su-email" name="email" required>
+      </div>
+      <div class="signup-field">
+        <label for="su-affiliation">Affiliation</label>
+        <input type="text" id="su-affiliation" name="affiliation" placeholder="Organization or company" required>
+      </div>
+      <div class="signup-field">
+        <label for="su-title">Title</label>
+        <input type="text" id="su-title" name="title" placeholder="Your role or title" required>
+      </div>
+      <label class="signup-consent">
+        <input type="checkbox" id="su-consent" name="consent" value="yes" required>
+        <span>I agree to Rudolph Ventures BV processing my email address, affiliation, and title to send me updates about Memo: Random, as described in the Privacy Notice below. I can withdraw this consent at any time.</span>
+      </label>
+      <button type="submit" class="signup-submit">Sign Up</button>
+      <p class="signup-success" id="signupSuccess">Thanks — you're on the list. Watch your inbox for updates on Episode 1.</p>
+      <p class="signup-error" id="signupError">Something went wrong submitting the form — please try again in a moment.</p>
+    </form>
+
+    <details class="signup-privacy">
+      <summary>Privacy Notice</summary>
+      <div class="notice-body">
+        <p><strong>Data controller.</strong> Rudolph Ventures BV, Spaces Auderghem, 54 Avenue Herrmann Debroux, Auderghem 1160, Brussels, Belgium (&quot;we,&quot; &quot;us&quot;). Contact: <a href="mailto:privacy@memorandomshow.com">privacy@memorandomshow.com</a>.</p>
+        <p><strong>What we collect.</strong> The email address, affiliation, and title you submit through this form.</p>
+        <p><strong>Why we collect it.</strong> To send you updates about Memo: Random — episode air dates, guest announcements, and post-show materials — and to understand who is watching the show.</p>
+        <p><strong>Legal basis.</strong> Your consent (Article 6(1)(a) GDPR), given when you check the box above and submit this form.</p>
+        <p><strong>Who else sees it.</strong> Form submissions are processed by Formspree, Inc., a third-party form service based in the United States, acting as our processor. Where your data is transferred outside the European Economic Area, we rely on the safeguards Formspree provides for such transfers (e.g., Standard Contractual Clauses or an equivalent framework).</p>
+        <p><strong>How long we keep it.</strong> Until you unsubscribe, ask us to delete your data, or the show's mailing list is discontinued.</p>
+        <p><strong>Your rights.</strong> Under the GDPR, you can ask to access, correct, or delete your data, restrict or object to its processing, request a copy in a portable format, and withdraw your consent at any time — none of which affects processing that already took place. To exercise any of these, email <a href="mailto:privacy@memorandomshow.com">privacy@memorandomshow.com</a>.</p>
+        <p><strong>Complaints.</strong> You can lodge a complaint with the Belgian Data Protection Authority (Autorité de protection des données / Gegevensbeschermingsautoriteit), Rue de la Presse 35 / Drukpersstraat 35, 1000 Brussels, Belgium — <a href="https://www.dataprotectionauthority.be" target="_blank" rel="noopener">www.dataprotectionauthority.be</a> — or with the supervisory authority in your own EU member state of residence.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
 <footer>
   <div class="fmark">
     <svg width="30" height="30" viewBox="0 0 100 100" fill="none"><rect x="16" y="6" width="68" height="88" stroke="#F5F6F8" stroke-width="5.4"/><path d="M32 38 L50 28 L68 38" stroke="#F5F6F8" stroke-width="4.6"/><line x1="32" y1="38" x2="68" y2="38" stroke="#F5F6F8" stroke-width="4.4"/><line x1="41" y1="40" x2="41" y2="63" stroke="#F5F6F8" stroke-width="4.2"/><line x1="59" y1="40" x2="59" y2="63" stroke="#F5F6F8" stroke-width="4.2"/><line x1="28" y1="63" x2="72" y2="63" stroke="#F5F6F8" stroke-width="4.8"/><line x1="24" y1="75" x2="76" y2="75" stroke="#14ADAD" stroke-width="4.4"/></svg>
@@ -219,6 +281,33 @@
     menuBtn.setAttribute('aria-expanded', false);
   }));
 
+</script>
+<script>
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) {
+    const signupSuccess = document.getElementById('signupSuccess');
+    const signupError = document.getElementById('signupError');
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      signupError.style.display = 'none';
+      const data = new FormData(signupForm);
+      try {
+        const res = await fetch(signupForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          signupForm.reset();
+          signupSuccess.style.display = 'block';
+        } else {
+          signupError.style.display = 'block';
+        }
+      } catch (err) {
+        signupError.style.display = 'block';
+      }
+    });
+  }
 </script>
 </body>
 </html>
