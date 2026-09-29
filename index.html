@@ -145,6 +145,15 @@
   .ep-watch a.linkedin:hover{background:var(--teal)}
   .ep-watch a.teaser{background:transparent;border:1px solid var(--navy);color:var(--navy)}
   .ep-watch a.teaser:hover{background:var(--navy);color:#fff}
+  .clips{max-width:640px;margin:48px auto 0;text-align:center}
+  .clips h3{font-size:22px;margin-bottom:6px}
+  .clips .clips-sub{font:400 11px/1.6 system-ui,sans-serif;color:var(--muted);margin:0 0 18px}
+  .clip-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;text-align:left}
+  .clip-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:4px;background:var(--paper);padding:12px 16px;font:400 12px/1.4 'Space Mono',monospace;color:var(--navy)}
+  .clip-list li a{color:var(--navy);text-decoration:none;font-weight:700}
+  .clip-list li a:hover{color:var(--teal-ink)}
+  .clip-list li.soon .clip-title{color:var(--muted)}
+  .clip-list .clip-when{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -200,6 +209,34 @@
         </div>
       </div>
     </div>
+    <div class="clips" id="clips">
+      <h3>Clips from Episode 1</h3>
+      <p class="clips-sub">A new short clip is released every few days. Sign up below for the post-show debrief memo.</p>
+      <ul class="clip-list">
+        <li data-release="2026-09-30T06:30:00Z" data-url="https://www.youtube.com/shorts/GzR84LXr6U4" data-date="Sep 30"><span class="clip-title">Why Taiwan was left out of the fact sheet</span><span class="clip-when">Sep 30</span></li>
+        <li data-release="2026-10-02T06:30:00Z" data-url="https://www.youtube.com/shorts/DwiqQqnjBmY" data-date="Oct 2"><span class="clip-title">I graded the Trump-Xi summit</span><span class="clip-when">Oct 2</span></li>
+        <li data-release="2026-10-06T06:30:00Z" data-url="https://www.youtube.com/shorts/9UynRLRgBjY" data-date="Oct 6"><span class="clip-title">Why China&rsquo;s export promises are so hard to check</span><span class="clip-when">Oct 6</span></li>
+        <li data-release="2026-10-08T06:30:00Z" data-url="https://www.youtube.com/shorts/eykLLYgErkM" data-date="Oct 8"><span class="clip-title">What Trump and Xi didn&rsquo;t discuss</span><span class="clip-when">Oct 8</span></li>
+        <li data-release="2026-10-12T06:30:00Z" data-url="https://www.youtube.com/shorts/b89PW4fXSS8" data-date="Oct 12"><span class="clip-title">See me live in Singapore, Oct 13&ndash;15</span><span class="clip-when">Oct 12</span></li>
+      </ul>
+    </div>
+    <script>
+    (function(){
+      var now=Date.now();
+      document.querySelectorAll('#clips .clip-list li').forEach(function(li){
+        var title=li.querySelector('.clip-title'),when=li.querySelector('.clip-when');
+        if(now>=Date.parse(li.getAttribute('data-release'))){
+          var a=document.createElement('a');
+          a.href=li.getAttribute('data-url');a.target='_blank';a.rel='noopener';
+          a.textContent=title.textContent;title.textContent='';title.appendChild(a);
+          when.textContent='Watch \u2192';
+        }else{
+          li.className='soon';
+          when.textContent='Coming '+li.getAttribute('data-date');
+        }
+      });
+    })();
+    </script>
   </div>
 </section>
 
