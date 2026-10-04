@@ -156,12 +156,16 @@
   .clips{max-width:640px;margin:48px auto 0;text-align:center}
   .clips h3{font-size:22px;margin-bottom:6px}
   .clips .clips-sub{font:400 11px/1.6 system-ui,sans-serif;color:var(--muted);margin:0 0 18px}
-  .clip-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;text-align:left}
-  .clip-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:4px;background:var(--paper);padding:12px 16px;font:400 12px/1.4 'Space Mono',monospace;color:var(--navy)}
-  .clip-list li a{color:var(--navy);text-decoration:none;font-weight:700}
-  .clip-list li a:hover{color:var(--teal-ink)}
-  .clip-list li.soon .clip-title{color:var(--muted)}
-  .clip-list .clip-when{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .clip-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:14px;text-align:left}
+  .clip-list li{position:relative;aspect-ratio:9/16;border-radius:6px;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--navy-ink,#102748));border:1px solid var(--line)}
+  .clip-list .clip-title{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .clip-list a.clip-thumb{position:absolute;inset:0;display:block}
+  .clip-list a.clip-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .clip-list a.clip-thumb:hover img,.clip-list a.clip-thumb:focus-visible img{transform:scale(1.05)}
+  .clip-list .clip-play{position:absolute;right:8px;bottom:8px;width:26px;height:26px;border-radius:50%;background:rgba(16,39,72,.82);pointer-events:none}
+  .clip-list .clip-play::after{content:"";position:absolute;left:10px;top:7px;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent #fff}
+  .clip-list li.soon{display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+  .clip-list .clip-when{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72);line-height:1.5}
 </style>
 </head>
 <body>
@@ -234,12 +238,19 @@
     (function(){
       var now=Date.now();
       document.querySelectorAll('#clips .clip-list li').forEach(function(li){
-        var title=li.querySelector('.clip-title'),when=li.querySelector('.clip-when');
+        var title=li.querySelector('.clip-title'),when=li.querySelector('.clip-when'),name=title.textContent;
         if(now>=Date.parse(li.getAttribute('data-release'))){
+          var url=li.getAttribute('data-url'),id=url.split('/').pop().split('?')[0];
           var a=document.createElement('a');
-          a.href=li.getAttribute('data-url');a.target='_blank';a.rel='noopener';
-          a.textContent=title.textContent;title.textContent='';title.appendChild(a);
-          when.textContent='Watch \u2192';
+          a.className='clip-thumb';a.href=url;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','Watch: '+name);
+          var img=new Image(),tries=['oar2','hq720','hqdefault'],n=0;
+          img.alt=name;img.loading='lazy';img.decoding='async';
+          img.onerror=function(){n++;if(n<tries.length){img.src='https://i.ytimg.com/vi/'+id+'/'+tries[n]+'.jpg';}};
+          img.src='https://i.ytimg.com/vi/'+id+'/'+tries[0]+'.jpg';
+          a.appendChild(img);
+          var p=document.createElement('span');p.className='clip-play';a.appendChild(p);
+          li.appendChild(a);
+          when.parentNode.removeChild(when);
         }else{
           li.className='soon';
           when.textContent='Coming '+li.getAttribute('data-date');
