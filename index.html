@@ -113,6 +113,7 @@
   .ep-card .ep-thumb img{position:absolute;inset:0}
   .ep-card .ep-watch a.reg{background:var(--teal);color:#0b2440;font-weight:700;font-size:12px;padding:12px 22px}
   .ep-card .ep-watch a.reg:hover{background:var(--teal);filter:brightness(.92)}
+  .ep-card .ep-foot:not(.ep-watch){display:flex;flex-direction:column;justify-content:center}
 
   .about{background:var(--navy);color:#F5F6F8}
   .about .section-head h2,.about .section-head .num{color:#F5F6F8}
@@ -432,6 +433,12 @@
       }
     });
   }
+</script>
+<script>
+(function(){
+  function eq(){var f=[].slice.call(document.querySelectorAll('.ep-card .ep-foot'));f.forEach(function(e){e.style.minHeight=''});var m=Math.max.apply(null,f.map(function(e){return e.offsetHeight}));f.forEach(function(e){e.style.minHeight=m+'px'})}
+  window.addEventListener('load',eq);window.addEventListener('resize',eq);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(eq);eq();
+})();
 </script>
 </body>
 </html>
