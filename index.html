@@ -103,6 +103,12 @@
   .ep-body .ep-num{font:400 9px/1 'Space Mono',monospace;color:var(--teal-ink);letter-spacing:.12em}
   .ep-body h3{font-size:19px;margin:8px 0 6px;letter-spacing:.02em}
   .ep-body p{font:400 14px/1.65 system-ui,sans-serif;color:var(--muted);margin:0}
+  .ep-card{display:flex;flex-direction:column}
+  .ep-card .ep-body{flex:1;display:flex;flex-direction:column}
+  .ep-body > p:last-of-type{margin-bottom:22px}
+  .ep-card .ep-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+  .ep-foot .ep-int{font:700 15px/1.5 'Space Mono',monospace;color:var(--navy);letter-spacing:.02em;margin:0;text-wrap:balance}
+  .ep-card .ep-watch{justify-content:center}
 
   .about{background:var(--navy);color:#F5F6F8}
   .about .section-head h2,.about .section-head .num{color:#F5F6F8}
@@ -233,7 +239,7 @@
           <h3>The President Trump-President Xi Summit</h3>
           <p><strong>Air date:</strong> Monday, September 28, 2026 at 9 AM ET.</p>
           <p><strong>Confirmed speaker:</strong> Naomi Wilson, Senior Vice President of Asia Policy, ITI.</p>
-          <div class="ep-watch">
+          <div class="ep-watch ep-foot">
             <a href="https://www.youtube.com/shorts/pETfQHNU-H4" target="_blank" rel="noopener" class="teaser">Watch the Teaser →</a>
             <a href="https://youtu.be/9sJSHP_-DK0" target="_blank" rel="noopener">Watch on YouTube →</a>
             <a href="episode-1-debrief.html" class="teaser">Read the Debrief →</a>
@@ -250,9 +256,11 @@
           <h3>How to Regulate AI?</h3>
           <p><strong>Air date:</strong> Wednesday, November 4, 2026 at 6 PM CET / 12 PM ET.</p>
           <p><strong>Confirmed speakers:</strong> <a href="https://zenity.io/authors/taylor-roberts" target="_blank" rel="noopener">Taylor Roberts</a>, Principal AI Security Policy Analyst, Zenity; and <a href="https://www.atlanticcouncil.org/expert/konstantinos-komaitis/" target="_blank" rel="noopener">Konstantinos Komaitis</a>, Resident Senior Fellow, Democracy + Tech Initiative, Atlantic Council.</p>
-          <p style="margin:22px 0 4px;padding-top:18px;border-top:1px solid var(--line);font:700 15px/1.5 'Space Mono',monospace;color:var(--navy);letter-spacing:.02em">Interactive: live polls and live Q&amp;A.</p>
-          <div class="ep-watch" style="justify-content:center">
-            <a href="https://riverside.com/webinar/registration/eyJldmVudElkIjoiNmFkNGUyNGRiNWE3MGFmMTBmM2FiY2FmIiwic2x1ZyI6InRyZXZvcnMtc3R1ZGlvLXdma3Z5In0=" target="_blank" rel="noopener" style="background:var(--teal);color:#0b2440;font-weight:700;font-size:12px;padding:12px 22px">Register for the live event →</a>
+          <div class="ep-foot">
+            <p class="ep-int">Interactive: live polls and live Q&amp;A.</p>
+            <div class="ep-watch">
+              <a href="https://riverside.com/webinar/registration/eyJldmVudElkIjoiNmFkNGUyNGRiNWE3MGFmMTBmM2FiY2FmIiwic2x1ZyI6InRyZXZvcnMtc3R1ZGlvLXdma3Z5In0=" target="_blank" rel="noopener">Register for the live event →</a>
+            </div>
           </div>
         </div>
       </div>
