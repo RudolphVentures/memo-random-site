@@ -224,7 +224,7 @@
     <div class="eyebrow tag">An Interactive Geopolitical Talk Show.</div>
     <p class="sub">Memo: Random covers geopolitics in a unique and interactive way with expert analysis and audience engagement that gives you a voice in geopolitics.</p>
     <div class="hero-ctas">
-      <a href="https://riverside.com/webinar/registration/eyJldmVudElkIjoiNmFkNGUyNGRiNWE3MGFmMTBmM2FiY2FmIiwic2x1ZyI6InRyZXZvcnMtc3R1ZGlvLXdma3Z5In0=" target="_blank" rel="noopener" class="btn btn-primary">Register for Episode 2</a>
+      <a href="https://youtu.be/g4fXXYa7cM0" target="_blank" rel="noopener" class="btn btn-primary">Watch Episode 2</a>
       <a href="#episodes" class="btn btn-ghost">Upcoming Episodes</a>
       <a href="https://www.youtube.com/@MemoRandomShow?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-youtube"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/></svg>Subscribe on YouTube</a>
     </div>
@@ -264,11 +264,26 @@
           <div class="ep-foot">
             <p class="ep-int">Interactive: live polls and live Q&amp;A.</p>
             <div class="ep-watch">
-              <a href="https://riverside.com/webinar/registration/eyJldmVudElkIjoiNmFkNGUyNGRiNWE3MGFmMTBmM2FiY2FmIiwic2x1ZyI6InRyZXZvcnMtc3R1ZGlvLXdma3Z5In0=" target="_blank" rel="noopener" class="reg">Register for the live event →</a>
+              <a href="https://youtu.be/g4fXXYa7cM0" target="_blank" rel="noopener" class="reg">Watch on YouTube →</a>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="clips" id="clips-ep2">
+      <h3>Clips from Episode 2</h3>
+      <p class="clips-sub">A new short clip is released every few days. Watch the <a href="https://youtu.be/g4fXXYa7cM0" target="_blank" rel="noopener">full episode on YouTube</a>, and sign up below for future post-show debrief memos.</p>
+      <ul class="clip-list">
+        <li data-release="2026-11-10T11:00:00Z" data-url="https://www.youtube.com/shorts/Ke0XfC87YJY" data-date="Nov 10"><span class="clip-title">Live poll: Is AI coming for your job?</span><span class="clip-when">Nov 10</span></li>
+        <li data-release="2026-11-11T11:00:00Z" data-url="https://www.youtube.com/shorts/a8WAwoPemkg" data-date="Nov 11"><span class="clip-title">Do Americans care about AI&rsquo;s climate impact?</span><span class="clip-when">Nov 11</span></li>
+        <li data-release="2026-11-12T11:00:00Z" data-url="https://www.youtube.com/shorts/ReGR5-sKTJM" data-date="Nov 12"><span class="clip-title">Will AI take your job? Who gets hit first</span><span class="clip-when">Nov 12</span></li>
+        <li data-release="2026-11-17T11:00:00Z" data-url="https://www.youtube.com/shorts/t0jm_g2tdQg" data-date="Nov 17"><span class="clip-title">No grand bargain needed. Just a conversation.</span><span class="clip-when">Nov 17</span></li>
+        <li data-release="2026-11-18T11:00:00Z" data-url="https://www.youtube.com/shorts/wFkyE7XTCT8" data-date="Nov 18"><span class="clip-title">Can the U.S. and China work together on AI risk?</span><span class="clip-when">Nov 18</span></li>
+        <li data-release="2026-11-19T11:00:00Z" data-url="https://www.youtube.com/shorts/tAfRQ71pYqA" data-date="Nov 19"><span class="clip-title">Why &ldquo;the AI race&rdquo; is the wrong analogy</span><span class="clip-when">Nov 19</span></li>
+        <li data-release="2026-12-01T11:00:00Z" data-url="https://www.youtube.com/shorts/oOAtJUUpVSE" data-date="Dec 1"><span class="clip-title">&ldquo;Rogue AI&rdquo;? The guardrails weren&rsquo;t in place.</span><span class="clip-when">Dec 1</span></li>
+        <li data-release="2026-12-02T11:00:00Z" data-url="https://www.youtube.com/shorts/qmO8PSZqKh0" data-date="Dec 2"><span class="clip-title">Who&rsquo;s liable when AI agents go wrong?</span><span class="clip-when">Dec 2</span></li>
+        <li data-release="2026-12-03T11:00:00Z" data-url="https://www.youtube.com/shorts/5mcjEA_dhJ4" data-date="Dec 3"><span class="clip-title">Does AI need its own IAEA?</span><span class="clip-when">Dec 3</span></li>
+      </ul>
     </div>
     <div class="clips" id="clips">
       <h3>Clips from Episode 1</h3>
@@ -284,7 +299,7 @@
     <script>
     (function(){
       var now=Date.now();
-      document.querySelectorAll('#clips .clip-list li').forEach(function(li){
+      document.querySelectorAll('.clips .clip-list li').forEach(function(li){
         var title=li.querySelector('.clip-title'),when=li.querySelector('.clip-when'),name=title.textContent;
         if(now>=Date.parse(li.getAttribute('data-release'))){
           var url=li.getAttribute('data-url'),id=url.split('/').pop().split('?')[0];
