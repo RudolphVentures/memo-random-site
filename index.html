@@ -112,8 +112,10 @@
   .ep-card .ep-watch{justify-content:center}
   .ep-card .ep-thumb{aspect-ratio:3/2;flex:none;overflow:hidden}
   .ep-card .ep-thumb img{position:absolute;inset:0}
-  .ep-card .ep-watch a.reg{background:var(--teal);color:#0b2440;font-weight:700;font-size:12px;padding:12px 22px}
+  .ep-card .ep-watch a.reg{background:var(--teal);color:#0b2440;font-weight:700;font-size:12px;letter-spacing:.05em;padding:12px;min-height:36px;box-sizing:border-box;flex:1 1 100%;justify-content:center;text-align:center;white-space:nowrap}
   .ep-card .ep-watch a.reg:hover{background:var(--teal);filter:brightness(.92)}
+  .ep-card .ep-watch a.reg.alt{background:transparent;border:1px solid var(--navy);color:var(--navy);padding:11px}
+  .ep-card .ep-watch a.reg.alt:hover{background:var(--navy);color:#fff;filter:none}
   .ep-card .ep-foot:not(.ep-watch){display:flex;flex-direction:column;justify-content:center}
 
   .about{background:var(--navy);color:#F5F6F8}
@@ -268,6 +270,7 @@
             <p class="ep-int">Interactive: live polls and live Q&amp;A.</p>
             <div class="ep-watch">
               <a href="https://youtu.be/g4fXXYa7cM0" target="_blank" rel="noopener" class="reg">Watch on YouTube →</a>
+              <a href="https://www.youtube.com/shorts/G9oz0ECTnFI" target="_blank" rel="noopener" class="reg alt">Watch the Teaser →</a>
             </div>
           </div>
         </div>
@@ -281,10 +284,12 @@
           <h3>The President Trump-President Xi Summit</h3>
           <p><strong>Air date:</strong> Monday, September 28, 2026 at 9 AM ET.</p>
           <p><strong>Confirmed speaker:</strong> Naomi Wilson, Senior Vice President of Asia Policy, ITI.</p>
-          <div class="ep-watch ep-foot">
-            <a href="https://www.youtube.com/shorts/pETfQHNU-H4" target="_blank" rel="noopener" class="teaser">Watch the Teaser →</a>
-            <a href="https://youtu.be/9sJSHP_-DK0" target="_blank" rel="noopener">Watch on YouTube →</a>
-            <a href="episode-1-debrief.html" class="teaser">Read the Debrief →</a>
+          <div class="ep-foot">
+            <div class="ep-watch">
+              <a href="https://youtu.be/9sJSHP_-DK0" target="_blank" rel="noopener" class="reg">Watch on YouTube →</a>
+              <a href="https://www.youtube.com/shorts/pETfQHNU-H4" target="_blank" rel="noopener" class="reg alt">Watch the Teaser →</a>
+              <a href="episode-1-debrief.html" class="reg alt">Read the Debrief →</a>
+            </div>
           </div>
         </div>
       </div>
